@@ -1,5 +1,5 @@
 
-import { PageContent } from "@/src/cms_content_fetcher";
+import PageContent from "./cms_content/PageContent";
 import Page from "@/components/Page";
 
 export default function DynamicPage({ pageJSON }) {
