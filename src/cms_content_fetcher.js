@@ -47,45 +47,42 @@ export class PageContent extends Content{
 }
 
 export class ParagraphContent extends Content {
-  constructor({header, content}) {
+  constructor({header, document}) {
     super()
     this.header = header;
-    this.content = content;
+    this.document = document;
   }
 
   toJSON(){
     return {
       ...super.toJSON(),
       header: this.header,
-      content: {
-        isContentfulDocument: true,
-        value: this.content
-      }
+      document: this.document
     }
   }
 
   static buildFromContentfulFields(fields) {
-    return new ParagraphContent({header: fields.header, content: fields.content})
+    return new ParagraphContent({header: fields.header, document: fields.content})
   }
 }
 
 export class QuoteContent extends Content {
-  constructor({author, content}) {
+  constructor({author, text}) {
     super()
     this.author = author;
-    this.content = content;
+    this.text = text;
   }
 
   toJSON(){
     return {
       ...super.toJSON(),
       author: this.author,
-      content: this.content
+      text: this.text
     }
   }
 
   static buildFromContentfulFields(fields) {
-    return new QuoteContent({author: fields.author, content: fields.content})
+    return new QuoteContent({author: fields.author, text: fields.content})
   }
 }
 
