@@ -1,5 +1,6 @@
 import { Html, Head, Main, NextScript } from 'next/document'
 import Image from 'next/image'
+import Link from 'next/link'
 
 export default function Document() {
   return (
@@ -7,7 +8,7 @@ export default function Document() {
       <Head>
         <nav className="flex flex-row bg-purple-300 bg-opacity-20 p-2 text-white text-xl font-bold">
           <div className="grow">
-            <a href="/" className="w-32 block"><Image src="/logo.svg" height={592} width={1839} /></a>
+            <Link href="/" className="w-32 block"><Image src="/logo.svg" height={592} width={1839} /></Link>
           </div>
           <a href="/contact" className="my-auto">Contact Us</a>
         </nav>
