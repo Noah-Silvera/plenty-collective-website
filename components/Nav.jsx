@@ -5,7 +5,7 @@ export default function Nav({ pages }) {
   pages = pages || []
 
   return (
-    <nav className="flex flex-row bg-purple-300 bg-opacity-20 p-2 text-white text-xl font-bold gap-4">
+    <nav className="flex flex-row bg-purple-500 bg-opacity-20 p-2 text-white text-xl font-bold gap-4">
       <div className="grow">
         <Link href="/" className="w-32 block"><Image src="/logo.svg" height={592} width={1839} /></Link>
       </div>

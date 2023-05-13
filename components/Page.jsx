@@ -31,7 +31,7 @@ function CloudWrapper({ idx, children }){
 export default function Page({ content }){
   return (
     <main>
-      {content.displayTitle && <h1 className="text-4xl pb-8 pt-4">{content.title}</h1>}
+      {content.displayTitle && <h1 className="text-4xl pb-8 pt-8 font-libre-baskerville text-center">{content.title}</h1>}
       {content.sections.map((section, idx) => {
         return <CloudWrapper idx={idx} key={idx}>
           {createElement(
