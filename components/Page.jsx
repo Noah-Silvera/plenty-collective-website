@@ -13,8 +13,7 @@ function CloudWrapper({ idx, children }){
   const startingCloudImageIndex = 3;
 
   return (
-    <div key={idx}
-      className={classNames(
+    <div className={classNames(
         "bg-cover",
         "bg-no-repeat",
         "bg-center",
@@ -34,7 +33,7 @@ export default function Page({ content }){
     <main>
       {content.displayTitle && <h1 className="text-4xl pb-8 pt-4">{content.title}</h1>}
       {content.sections.map((section, idx) => {
-        return <CloudWrapper idx={idx}>
+        return <CloudWrapper idx={idx} key={idx}>
           {createElement(
             section.constructor.ReactComponent,
             {content: section, idx: idx}
