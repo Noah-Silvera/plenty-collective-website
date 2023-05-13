@@ -1,8 +1,13 @@
 import { createElement } from "react"
 import classNames from "classnames"
+import BoxShadowWrapper from "./sections/BoxShadowWrapper"
 
 // This wrapper will wrap every other section in a cloud
-function CloudWrapper({ idx, children }){
+function CloudWrapper({ idx, children, startWithCloud }){
+  const displayCloud = (idx) => {
+    return startWithCloud ? idx % 2 == 0 : idx % 2 == 1
+  }
+
   const cloudImageUrls = [
     '/images/cloud-1.jpg',
     '/images/cloud-2.jpg',
@@ -21,7 +26,7 @@ function CloudWrapper({ idx, children }){
         "justify-center",
         "items-center"
       )}
-      style={{backgroundImage: idx % 2 == 0 ? `url(${cloudImageUrls[((idx/2) + startingCloudImageIndex) % cloudImageUrls.length]})`: 'none'}}
+      style={{backgroundImage: displayCloud(idx) ? `url(${cloudImageUrls[((idx/2) + startingCloudImageIndex) % cloudImageUrls.length]})`: 'none'}}
     >
       {children}
     </div>
@@ -31,9 +36,33 @@ function CloudWrapper({ idx, children }){
 export default function Page({ content }){
   return (
     <main>
-      {content.displayTitle && <h1 className="text-4xl pb-8 pt-8 font-libre-baskerville text-center">{content.title}</h1>}
+      {content.displayTitle && (
+        <h1 className="text-4xl
+          py-36
+          font-libre-baskerville
+          text-center
+          text-white
+          font-semibold
+          tracking-widest
+          bg-[url('/images/title-background.jpg')]
+          bg-cover">
+          <div className="drop-shadow-xl
+            bg-plenty-purple-500
+            bg-opacity-50
+            mx-auto
+            max-w-[90%]
+            w-fit
+            py-16
+            px-48
+            rounded-xl
+            drop-shadow-2xl"
+          >
+            {content.title}
+          </div>
+        </h1>
+      )}
       {content.sections.map((section, idx) => {
-        return <CloudWrapper idx={idx} key={idx}>
+        return <CloudWrapper idx={idx} key={idx} startWithCloud={!content.displayTitle}>
           {createElement(
             section.constructor.ReactComponent,
             {content: section, idx: idx}
