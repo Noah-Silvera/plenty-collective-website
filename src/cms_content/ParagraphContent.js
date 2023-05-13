@@ -7,7 +7,7 @@ export default class ParagraphContent {
   toJSON(){
     return {
       type: this.constructor.name,
-      header: this.header,
+      header: this.header || null,
       document: this.document
     }
   }
