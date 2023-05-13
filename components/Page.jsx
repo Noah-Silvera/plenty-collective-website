@@ -37,12 +37,13 @@ export default function Page({ content }){
               "py-4",
               "px-12",
               "m-4",
-              "bg-opacity-75",
               "rounded-md",
-              "drop-shadow-lg",
+              "drop-shadow-xl",
               {
                 "bg-plenty-pink-300": idx % 2 == 0,
-                "bg-plenty-purple-200": idx % 2 == 1
+                "bg-plenty-purple-200": idx % 2 == 1,
+                "bg-opacity-75": idx % 2 == 0,
+                "bg-opacity-50": idx % 2 == 1
               })
             }>
               {createElement(eval(sectionComponentLookup[section.type]), {content: section})}
