@@ -26,7 +26,7 @@ function CloudWrapper({ idx, children, startWithCloud }){
         "justify-center",
         "items-center"
       )}
-      style={{backgroundImage: displayCloud(idx) ? `url(${cloudImageUrls[((idx/2) + startingCloudImageIndex) % cloudImageUrls.length]})`: 'none'}}
+      style={{backgroundImage: displayCloud(idx) ? `url(${cloudImageUrls[(Math.floor(idx/2) + startingCloudImageIndex) % cloudImageUrls.length]})`: 'none'}}
     >
       {children}
     </div>
@@ -41,7 +41,6 @@ export default function Page({ content }){
           py-24
           md:py-36
           font-cooper-hewitt
-          text-bold
           text-center
           text-white
           tracking-widest

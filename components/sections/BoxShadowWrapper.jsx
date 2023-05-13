@@ -17,11 +17,10 @@ export default function BoxShadowWrapper({ children, idx }){
       "m-4",
       "rounded-md",
       "drop-shadow-xl",
+      "bg-opacity-75",
       {
         "bg-plenty-pink-300": evenIndex,
-        "bg-plenty-purple-200": oddIndex,
-        "bg-opacity-75": evenIndex,
-        "bg-opacity-50": oddIndex
+        "bg-plenty-purple-200": oddIndex
       })
     }>{children}</div>
   )
