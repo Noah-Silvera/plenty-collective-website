@@ -1,6 +1,5 @@
 import { createElement } from "react"
 import classNames from "classnames"
-import BoxShadowWrapper from "./sections/BoxShadowWrapper"
 
 // This wrapper will wrap every other section in a cloud
 function CloudWrapper({ idx, children, startWithCloud }){
