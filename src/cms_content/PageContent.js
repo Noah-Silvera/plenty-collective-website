@@ -1,9 +1,21 @@
 import QuoteContent from "./QuoteContent";
 import ParagraphContent from "./ParagraphContent";
 import GalleryContent from "./GalleryContent";
+import BaseContent from "./BaseContent";
 
-export default class PageContent {
+export default class PageContent extends BaseContent{
+  // Add any new types that need to be displayed in a page to this
+  // mapping. The key corresponds to the type key in contentful and
+  // the `type` property on the content object.
+  static sectionTypeMap = {
+    'paragraph': ParagraphContent,
+    'quote': QuoteContent,
+    'gallery': GalleryContent
+  }
+
   constructor({title, sections, displayTitle}) {
+    super()
+
     this.title = title;
     this.displayTitle = displayTitle;
     this.sections = sections;
@@ -14,26 +26,30 @@ export default class PageContent {
       type: this.constructor.name,
       title: this.title,
       displayTitle: this.displayTitle,
-      sections: this.sections.map((section) => section.toJSON())
+      sectionsJSON: this.sections.map((section) => section.toJSON())
     }
   }
 
   static fromJSON(json){
+    json.sections = json.sectionsJSON.map((sectionJSON) => {
+      if(!sectionJSON.type) {
+        throw "Every section JSON should have a serialized `type` property correponding to a key in the `sectionTypeMap`"
+      }
+
+      return PageContent.sectionTypeMap[sectionJSON.type].fromJSON(sectionJSON)
+    })
     return new PageContent(json)
   }
 
   static buildFromContentfulFields(fields) {
     let sections = fields.sections.map((section) => {
       let contentTypeId = section.sys.contentType.sys.id
-      switch(contentTypeId) {
-        case 'paragraph':
-          return ParagraphContent.buildFromContentfulFields(section.fields)
-        case 'quote':
-          return QuoteContent.buildFromContentfulFields(section.fields)
-        case 'gallery':
-          return GalleryContent.buildFromContentfulFields(section.fields)
-        default:
-          throw new Error(`Unrecognized content type ${contentType}`)
+      let contentType = this.sectionTypeMap[contentTypeId]
+
+      if(contentType){
+        return contentType.buildFromContentfulFields(section.fields, contentTypeId)
+      } else {
+        throw new Error(`Unrecognized content type ${contentType}`)
       }
     })
 
