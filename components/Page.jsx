@@ -10,7 +10,7 @@ export default function Page({ content }){
   }
 
   return (
-    <main>
+    <main className="pt-14">
       {content.displayTitle && <h1 className="text-4xl pb-8 pt-4">{content.title}</h1>}
       {content.sections.map((section, idx) => {
         return (
@@ -21,6 +21,8 @@ export default function Page({ content }){
             "px-12",
             "m-4",
             "bg-opacity-50",
+            "rounded-md",
+            "drop-shadow-lg",
             {
               "bg-plenty-pink-300": idx % 2 == 0,
               "bg-plenty-purple-200": idx % 2 == 1
