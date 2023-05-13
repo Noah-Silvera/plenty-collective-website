@@ -1,12 +1,14 @@
 import Paragraph from "./sections/Paragraph"
 import Quote from "./sections/Quote"
+import Gallery from "./sections/Gallery"
 import { createElement } from "react"
 import classNames from "classnames"
 
 export default function Page({ content }){
   const sectionComponentLookup = {
     "ParagraphContent": Paragraph,
-    "QuoteContent": Quote
+    "QuoteContent": Quote,
+    "GalleryContent": Gallery,
   }
 
   const cloudImageUrls = [
@@ -25,6 +27,10 @@ export default function Page({ content }){
         let evenIndex = idx % 2 == 0;
         let oddIndex = idx % 2 == 1;
 
+        if(!section.type) {
+          throw "Section type is null or undefined. All sections must have a defined type."
+        }
+
         return (
           <div key={idx}
             className={classNames(
@@ -38,25 +44,7 @@ export default function Page({ content }){
             )}
             style={{backgroundImage: evenIndex ? `url(${cloudImageUrls[(idx/2) % cloudImageUrls.length + startingCloudImageIndex]})`: 'none'}}
           >
-            <div className={classNames(
-              "w-[52rem]",
-              "max-w-[90%]",
-              "h-fit",
-              "mx-auto",
-              "py-4",
-              "px-12",
-              "m-4",
-              "rounded-md",
-              "drop-shadow-xl",
-              {
-                "bg-plenty-pink-300": evenIndex,
-                "bg-plenty-purple-200": oddIndex,
-                "bg-opacity-75": evenIndex,
-                "bg-opacity-50": oddIndex
-              })
-            }>
-              {createElement(eval(sectionComponentLookup[section.type]), {content: section})}
-            </div>
+            {createElement(eval(sectionComponentLookup[section.type]), {content: section, idx: idx})}
           </div>
         )
       })}

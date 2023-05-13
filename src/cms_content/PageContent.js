@@ -1,5 +1,6 @@
 import QuoteContent from "./QuoteContent";
 import ParagraphContent from "./ParagraphContent";
+import GalleryContent from "./GalleryContent";
 
 export default class PageContent {
   constructor({title, sections, displayTitle}) {
@@ -29,6 +30,8 @@ export default class PageContent {
           return ParagraphContent.buildFromContentfulFields(section.fields)
         case 'quote':
           return QuoteContent.buildFromContentfulFields(section.fields)
+        case 'gallery':
+          return GalleryContent.buildFromContentfulFields(section.fields)
         default:
           throw new Error(`Unrecognized content type ${contentType}`)
       }
