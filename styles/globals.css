@@ -12,6 +12,8 @@
   --theme-light-purple: #BFAECF;
   --theme-light-blue: #A5C7E4;
   --theme-light-green: #A5C7E4;
+
+  font-family: 'Poppins', sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -21,3 +23,5 @@
     --background-end-rgb: 0, 0, 0;
   }
 }
+
+
