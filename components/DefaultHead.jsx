@@ -1,6 +1,6 @@
 import Head from 'next/head'
 
-export default function DefaultHead({ title, pages }) {
+export default function DefaultHead({ title }) {
   let pageTitle = [title, "Plenty Collective"].filter((val) => !!val).join(" - ")
   return (
     <Head>
