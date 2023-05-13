@@ -38,7 +38,8 @@ export default function Page({ content }){
     <main>
       {content.displayTitle && (
         <h1 className="text-4xl
-          py-36
+          py-24
+          md:py-36
           font-libre-baskerville
           text-center
           text-white
@@ -53,7 +54,9 @@ export default function Page({ content }){
             max-w-[90%]
             w-fit
             py-16
-            px-48
+            px-16
+            sm: px-24
+            md:px-48
             rounded-xl
             drop-shadow-2xl"
           >
