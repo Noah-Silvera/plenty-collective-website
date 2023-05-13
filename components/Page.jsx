@@ -42,7 +42,7 @@ export default function Page({ content }){
               "justify-center",
               "items-center"
             )}
-            style={{backgroundImage: evenIndex ? `url(${cloudImageUrls[(idx/2) % cloudImageUrls.length + startingCloudImageIndex]})`: 'none'}}
+            style={{backgroundImage: evenIndex ? `url(${cloudImageUrls[((idx/2) + startingCloudImageIndex) % cloudImageUrls.length]})`: 'none'}}
           >
             {createElement(eval(sectionComponentLookup[section.type]), {content: section, idx: idx})}
           </div>
