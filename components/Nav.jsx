@@ -14,7 +14,7 @@ export default function Nav({ pages }) {
       })}
       <Link href="/contact" className="my-auto">Contact Us</Link>
       <Link href="https://www.instagram.com/plenty.collective/" className="my-auto" target="_blank">
-        <span className="md:sr-only text-primary-light md:text-primary-dark text-2xl pr-5 py-0 sm:pt-2">Instagram</span>
+        <span className="sr-only text-primary-light md:text-primary-dark text-2xl pr-5 py-0 sm:pt-2">Instagram</span>
         <span className='text-primary-light md:text-primary-dark'><i aria-hidden="true" className="fab fa-instagram text-3xl md:text-4xl pr-5" title="Instagram"></i></span>
       </Link>
     </nav>
