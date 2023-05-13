@@ -37,13 +37,13 @@ export default function Page({ content }){
   return (
     <main>
       {content.displayTitle && (
-        <h1 className="text-4xl
+        <h1 className="text-4xl sm:text-5xl
           py-24
           md:py-36
-          font-libre-baskerville
+          font-cooper-hewitt
+          text-bold
           text-center
           text-white
-          font-semibold
           tracking-widest
           bg-[url('/images/title-background.jpg')]
           bg-cover">
