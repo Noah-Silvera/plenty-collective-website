@@ -7,8 +7,8 @@ export default function Nav({ pages }) {
       <div className="grow">
         <Link href="/" className="w-32 block"><Image src="/logo.svg" height={592} width={1839} /></Link>
       </div>
-      {pages.map((page) => {
-        return <a href={`/${page.urlPath}`} className="my-auto">{page.title}</a>
+      {pages.map((page, idx) => {
+        return <a href={`/${page.urlPath}`} className="my-auto" key={idx}>{page.title}</a>
       })}
       <a href="/contact" className="my-auto">Contact Us</a>
     </nav>
