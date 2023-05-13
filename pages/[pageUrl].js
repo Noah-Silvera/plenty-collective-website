@@ -1,16 +1,16 @@
-import { fetchAllPageUrls, fetchPageByUrl } from "@/src/cms_content_fetcher";
+import { fetchAllPages } from "@/src/cms_content_fetcher";
 import DynamicPage from "@/src/dynamic_page";
 
 export default DynamicPage;
 
 export async function getStaticPaths() {
-  let pageUrls = await fetchAllPageUrls();
+  let pages = await fetchAllPages();
 
   return {
-    paths: pageUrls.map((pageUrl) => {
+    paths: pages.map(({ urlPath }) => {
       return {
         params: {
-          pageUrl: pageUrl
+          pageUrl: urlPath
         }
       }
     }),
@@ -19,11 +19,5 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  let content = await fetchPageByUrl(params.pageUrl)
-
-  return {
-    props: {
-      pageJSON: content.toJSON()
-    }
-  }
+  return generatePageProps(params.pageUrl)
 }

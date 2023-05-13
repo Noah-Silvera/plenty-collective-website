@@ -14,9 +14,14 @@ export async function fetchPageByUrl(urlPath){
   return PageContent.buildFromContentfulFields(selectedPage.fields)
 }
 
-export async function fetchAllPageUrls(){
+export async function fetchAllPages(){
   let response = await contentfulClientFactory().getEntries(            {
     content_type: "page",
   })
-  return response.items.map((item) => item.fields.urlPath)
+  return response.items.filter((item) => !item.fields.isHomePage).map((item) => {
+    return {
+      urlPath: item.fields.urlPath,
+      title: item.fields.title
+    }
+  })
 }
