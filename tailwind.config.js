@@ -57,6 +57,10 @@ module.exports = {
           800: '#15b125',
           900: '#00990c'
         }
+      },
+      fontFamily: {
+        'liberation-sans': 'LiberationSans',
+        'libre-baskerville': 'LibreBaskerville',
       }
     },
   },

@@ -1,6 +1,6 @@
 export default function Quote({ content }){
-  return <section>
-    <h2 className="text-3xl">{content.text}</h2>
-    <p className="text-xl">- {content.author}</p>
+  return <section className="p-4">
+    <h2 className="text-4xl font-thin">"{content.text}"</h2>
+    <p className="text-2xl pt-4 pl-[10%] font-regular font-liberation-sans">- {content.author}</p>
   </section>
 }
