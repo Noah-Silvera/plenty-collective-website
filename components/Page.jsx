@@ -37,7 +37,7 @@ export default function Page({ content }){
               "bg-cover",
               "bg-no-repeat",
               "bg-center",
-              "h-96",
+              "min-h-[24rem]",
               "flex",
               "justify-center",
               "items-center"
