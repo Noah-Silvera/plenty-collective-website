@@ -9,5 +9,5 @@ const contentfulClientFactory = () => createClient({
 export default contentfulClientFactory;
 
 export const PAGE_ENTRIES = {
-  "HOME": "7xaFOgldr80ozeZWPXNixJ"
+  "Home": "7xaFOgldr80ozeZWPXNixJ"
 }

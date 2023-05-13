@@ -1,10 +1,11 @@
-import { fetchPage } from "@/src/cms_content_fetcher"
+import { fetchPageById } from "@/src/cms_content_fetcher"
+import { PAGE_ENTRIES } from "@/src/contentful_client";
 import DynamicPage from "@/src/dynamic_page";
 
 export default DynamicPage;
 
 export async function getStaticProps() {
-  let content = await fetchPage("HOME")
+  let content = await fetchPageById(PAGE_ENTRIES["Home"])
 
   return {
     props: {
