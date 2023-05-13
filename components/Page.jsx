@@ -21,7 +21,6 @@ export default function Page({ content }){
               "bg-cover",
               "bg-no-repeat",
               "bg-center",
-              "min-h-[24rem]",
               "flex",
               "justify-center",
               "items-center"

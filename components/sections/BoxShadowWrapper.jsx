@@ -12,6 +12,7 @@ export default function BoxShadowWrapper({ children, idx }){
       "mx-auto",
       "py-4",
       "px-12",
+      "my-24",
       "m-4",
       "rounded-md",
       "drop-shadow-xl",
