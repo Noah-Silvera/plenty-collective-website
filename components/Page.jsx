@@ -55,7 +55,6 @@ export default function Page({ content }){
             w-fit
             py-16
             px-16
-            sm: px-24
             md:px-48
             rounded-xl
             drop-shadow-2xl"
