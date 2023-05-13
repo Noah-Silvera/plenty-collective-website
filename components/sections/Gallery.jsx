@@ -5,13 +5,13 @@ export default function Gallery({ content }){
     {content.images.map((image, idx) => {
       return (
         <div key={idx}>
-          <Image
+          <img
             src={image.url}
             width={image.width}
             height={image.height}
             alt={image.description}
             className="max-w-full sm:max-w-[24rem]"
-          ></Image>
+          ></img>
         </div>
       )
     })}
