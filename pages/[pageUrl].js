@@ -1,5 +1,6 @@
 import { fetchAllPages } from "@/src/cms_content_fetcher";
 import DynamicPage from "@/src/dynamic_page";
+import { generatePageProps } from "@/src/dynamic_page";
 
 export default DynamicPage;
 
