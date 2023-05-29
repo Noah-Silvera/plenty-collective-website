@@ -1,11 +1,6 @@
 import contentfulClientFactory from "./contentful_client";
 import PageContent from "./cms_content/PageContent";
 
-export async function fetchPageById(id){
-  let response = await contentfulClientFactory().getEntry(id)
-  return PageContent.buildFromContentfulFields(response.fields)
-}
-
 export async function fetchPageByUrl(urlPath){
   let response = await contentfulClientFactory().getEntries(            {
     content_type: "page",
