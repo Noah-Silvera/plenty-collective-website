@@ -1,7 +1,7 @@
 
 import PageContent from "./cms_content/PageContent";
 import Page from "@/components/Page";
-import { fetchPageByUrl, fetchAllPages } from "./cms_content_fetcher";
+import { fetchPageByUrl, fetchAllPages } from "./server/cms_content_fetcher";
 
 export default function DynamicPage({ pageJSON }) {
   let pageContent = PageContent.fromJSON(pageJSON);
