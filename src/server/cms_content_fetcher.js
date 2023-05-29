@@ -1,5 +1,5 @@
 import contentfulClientFactory from "./contentful_client";
-import PageContent from "./cms_content/PageContent";
+import PageContent from "../cms_content/PageContent";
 
 export async function fetchPageByUrl(urlPath){
   let response = await contentfulClientFactory().getEntries(            {
