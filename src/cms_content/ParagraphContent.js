@@ -27,7 +27,7 @@ export default class ParagraphContent extends BaseContent {
   }
 
   static buildFromContentfulFields(fields, type) {
-    let image = !!fields.image ? ImageJSON.buildFromContentfulFields(fields.image.fields) : {};
+    let image = !!fields.image ? ImageJSON.buildFromContentfulFields(fields.image.fields) : null;
 
     return new ParagraphContent({
       header: fields.header,

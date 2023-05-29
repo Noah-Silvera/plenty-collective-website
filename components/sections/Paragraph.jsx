@@ -18,10 +18,10 @@ export default function Paragraph({ content, idx }){
           width={content.image.width}
           height={content.image.height}
           alt={content.description}
-          className=""></img>
+          className="md:w-1/2"></img>
       )}
-      <div>
-        <h2 className="text-4xl text-center">{content.header}</h2>
+      <div className="pl-8 pr-8">
+        <h2 className="text-4xl text-center pb-4">{content.header}</h2>
         <div className="text-xl sm:text-2xl leading-10 tracking-wide font-libre-baskerville">
           {documentToReactComponents(content.document)}
         </div>
