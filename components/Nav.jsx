@@ -9,7 +9,7 @@ export default function Nav({ pages }) {
       <div className="grow">
         <Link href="/" className="w-32 block"><Image src="/logo.svg" height={592} width={1839} /></Link>
       </div>
-      {pages.concat([{ urlPath: "contact", title: "Contact Us"}]).map((page, idx) => {
+      {pages.map((page, idx) => {
         return <Link href={`/${page.urlPath}`} className="my-auto text-base sm:text-lg" key={idx}>{page.title}</Link>
       })}
       <Link href="https://www.instagram.com/plenty.collective/" className="my-auto" target="_blank">
