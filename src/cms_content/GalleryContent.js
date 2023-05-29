@@ -1,5 +1,6 @@
 import Gallery from "@/components/sections/Gallery";
 import BaseContent from "./BaseContent";
+import { ImageJSON } from "./utils";
 
 export default class GalleryContent extends BaseContent{
   constructor({images, type}) {
@@ -22,14 +23,7 @@ export default class GalleryContent extends BaseContent{
 
   static buildFromContentfulFields(fields, type) {
     return new GalleryContent({
-      images: fields.images.map((image) => {
-        return {
-          description: image.fields.description,
-          url: `https://${image.fields.file.url}`,
-          width: image.fields.file.details.image.width,
-          height: image.fields.file.details.image.height,
-        }
-      }),
+      images: fields.images.map((image) => ImageJSON.buildFromContentfulFields(image.fields)),
       type: type
     })
   }

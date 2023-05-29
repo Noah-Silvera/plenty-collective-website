@@ -1,5 +1,6 @@
 import Paragraph from "@/components/sections/Paragraph";
 import BaseContent from "./BaseContent";
+import { ImageJSON } from "./utils";
 
 export default class ParagraphContent extends BaseContent {
   constructor({header, document, type, image, displayImageOnRightSide}) {
@@ -26,12 +27,7 @@ export default class ParagraphContent extends BaseContent {
   }
 
   static buildFromContentfulFields(fields, type) {
-    let image = !!fields.image ? {
-      description: fields.image.fields.description,
-      url: `https://${fields.image.fields.file.url}`,
-      width: fields.image.fields.file.details.image.width,
-      height: fields.image.fields.file.details.image.height
-    } : {};
+    let image = !!fields.image ? ImageJSON.buildFromContentfulFields(fields.image.fields) : {};
 
     return new ParagraphContent({
       header: fields.header,
