@@ -1,5 +1,6 @@
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import BoxShadowWrapper from './BoxShadowWrapper'
+import Image from 'next/image'
 
 export default function Paragraph({ content, idx }){
   return <BoxShadowWrapper idx={idx}>
@@ -8,6 +9,7 @@ export default function Paragraph({ content, idx }){
       <div className="text-xl sm:text-2xl leading-10 tracking-wide font-libre-baskerville">
         {documentToReactComponents(content.document)}
       </div>
+      {content.image && <img src={content.image.url} width={content.image.width} height={content.image.height} alt={content.description}></img>}
     </section>
   </BoxShadowWrapper>
 }
