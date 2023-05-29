@@ -5,7 +5,7 @@ import classNames from 'classnames'
 export default function Paragraph({ content, idx }){
   return <BoxShadowWrapper idx={idx}>
     <section className={classNames(
-      "p-4",
+      "p-6",
       "flex",
       "flex-col",
       {
@@ -18,10 +18,20 @@ export default function Paragraph({ content, idx }){
           width={content.image.width}
           height={content.image.height}
           alt={content.description}
-          className="md:w-1/2"></img>
+          className={classNames(
+            "md:w-1/2",
+            "md:py-4",
+            {
+              "md:pr-8": !content.displayImageOnRightSide,
+              "md:pl-8": content.displayImageOnRightSide,
+            }
+          )}></img>
       )}
-      <div className="pl-8 pr-8">
-        <h2 className="text-4xl text-center pb-4">{content.header}</h2>
+      <div className={classNames(
+        "px-8",
+        {"py-6": content.image},
+      )}>
+        {content.header && <h2 className="text-4xl text-center pb-4">{content.header}</h2>}
         <div className="text-xl sm:text-2xl leading-10 tracking-wide font-libre-baskerville">
           {documentToReactComponents(content.document)}
         </div>
