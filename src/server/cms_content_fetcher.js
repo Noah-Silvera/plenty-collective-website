@@ -20,3 +20,13 @@ export async function fetchAllPages(){
     }
   })
 }
+
+
+export async function fetchNavbarOrder(){
+  let response = await contentfulClientFactory().getEntries(            {
+    content_type: "navbarOrder",
+  })
+  return response.items[0].fields.order.map((entry) => {
+    return entry.fields.urlPath
+  });
+}
