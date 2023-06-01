@@ -37,6 +37,10 @@ export default function Nav({ pages }) {
           {pages.map((page, idx) => {
             return <Link href={`/${page.urlPath}`} className="text-3xl !py-4 !pl-4 border-b-2 border-purple-300 bg-purple-100 opacity-60 font-cooper-hewitt" key={idx} onClick={() => setNavOpen(false)}>{page.title}</Link>
           })}
+          <Link href="https://www.instagram.com/plenty.collective/" className="my-auto w-full !py-4 !pl-4 border-b-2 border-purple-300 bg-purple-100 opacity-60 font-cooper-hewitt" target="_blank">
+            <span className="text-primary-light md:text-primary-dark text-3xl !pr-5 py-0 sm:pt-2">Instagram</span>
+            <span className='text-primary-light md:text-primary-dark'><i aria-hidden="true" className="fab fa-instagram text-4xl md:text-4xl" title="Instagram"></i></span>
+          </Link>
         </ul>
       </ResponsiveNavbar>
       <nav className="hidden sm:flex flex-row bg-purple-500 bg-opacity-20 p-2 text-white text-xl font-bold gap-2 sm:gap-4">
