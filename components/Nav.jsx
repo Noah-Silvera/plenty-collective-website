@@ -35,7 +35,7 @@ export default function Nav({ pages }) {
       >
         <ul className="w-full !pt-[85px]">
           {pages.map((page, idx) => {
-            return <Link href={`/${page.urlPath}`} className="text-2xl !py-3 !pl-4 border-b-2 border-purple-300 bg-purple-100 opacity-60" key={idx} onClick={() => setNavOpen(false)}>{page.title}</Link>
+            return <Link href={`/${page.urlPath}`} className="text-3xl !py-4 !pl-4 border-b-2 border-purple-300 bg-purple-100 opacity-60 font-cooper-hewitt" key={idx} onClick={() => setNavOpen(false)}>{page.title}</Link>
           })}
         </ul>
       </ResponsiveNavbar>
