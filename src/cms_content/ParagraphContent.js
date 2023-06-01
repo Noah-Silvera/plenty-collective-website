@@ -3,13 +3,13 @@ import BaseContent from "./BaseContent";
 import { ImageJSON } from "./utils";
 
 export default class ParagraphContent extends BaseContent {
-  constructor({header, document, type, image, displayImageOnRightSide}) {
+  constructor({header, document, type, image, imagePosition}) {
     super()
     this.header = header;
     this.document = document;
     this.type = type
     this.image = image
-    this.displayImageOnRightSide = displayImageOnRightSide
+    this.imagePosition = imagePosition
   }
 
   toJSON(){
@@ -18,7 +18,7 @@ export default class ParagraphContent extends BaseContent {
       header: this.header || null,
       document: this.document,
       image: this.image,
-      displayImageOnRightSide: this.displayImageOnRightSide
+      imagePosition: this.imagePosition
     }
   }
 
@@ -34,7 +34,7 @@ export default class ParagraphContent extends BaseContent {
       document: fields.content,
       type: type,
       image: image,
-      displayImageOnRightSide: fields.displayImageOnRightSide
+      imagePosition: ImageJSON.imagePositionToString(fields.imagePosition)
     })
   }
 

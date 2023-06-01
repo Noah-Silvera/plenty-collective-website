@@ -5,12 +5,15 @@ import classNames from 'classnames'
 export default function Paragraph({ content, idx }){
   return <BoxShadowWrapper idx={idx}>
     <section className={classNames(
-      "p-6",
+      "p-2",
+      "sm:p-6",
       "flex",
       "flex-col",
+      "gap-12",
+      "sm:gap-16",
       {
-        "md:flex-row": !content.displayImageOnRightSide,
-        "md:flex-row-reverse": content.displayImageOnRightSide
+        "md:flex-row": content.imagePosition == 'left',
+        "md:flex-row-reverse": content.imagePosition == 'right'
       }
     )}>
        {content.image && (
@@ -19,20 +22,31 @@ export default function Paragraph({ content, idx }){
           height={content.image.height}
           alt={content.description}
           className={classNames(
-            "md:w-1/2",
-            "md:py-4",
+            "object-contain",
+            "mx-auto",
             {
-              "md:pr-8": !content.displayImageOnRightSide,
-              "md:pl-8": content.displayImageOnRightSide,
+              "md:w-1/2": content.imagePosition == 'left' || content.imagePosition == 'right'
             }
           )}></img>
       )}
       <div className={classNames(
-        "px-8",
-        {"py-6": content.image},
+        {
+          "my-auto": content.image
+        }
       )}>
         {content.header && <h2 className="text-4xl text-center pb-4">{content.header}</h2>}
-        <div className="text-xl sm:text-2xl leading-10 tracking-wide font-libre-baskerville">
+        <div className={classNames(
+          "text-lg",
+          "leading-8",
+          "sm:leading-10",
+          "tracking-wide",
+          "font-libre-baskerville",
+          "contentful-rich-text",
+          {
+            "sm:text-lg": content.image,
+            "sm:text-xl": !content.image
+          }
+        )}>
           {documentToReactComponents(content.document)}
         </div>
       </div>

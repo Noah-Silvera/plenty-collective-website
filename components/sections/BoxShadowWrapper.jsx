@@ -6,14 +6,15 @@ export default function BoxShadowWrapper({ children, idx }){
 
   return (
     <div className={classNames(
-      "w-[52rem]",
+      "w-[64rem]",
       "max-w-[90%]",
       "h-fit",
       "mx-auto",
       "py-4",
       "px-6",
       "sm:px-12",
-      "my-24",
+      "my-16",
+      "sm:my-24",
       "m-4",
       "rounded-md",
       "drop-shadow-xl",

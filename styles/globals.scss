@@ -23,3 +23,15 @@
     --background-end-rgb: 0, 0, 0;
   }
 }
+
+.contentful-rich-text {
+  overflow-wrap: break-word;
+
+  & p {
+    padding-bottom: .7em;
+
+    &:last-child {
+      padding-bottom: 0px;
+    }
+  }
+}
