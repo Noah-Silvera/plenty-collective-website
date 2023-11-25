@@ -1,5 +1,6 @@
 import { createElement } from "react"
 import classNames from "classnames"
+import Image from "next/image"
 
 // This wrapper will wrap every other section in a cloud
 function CloudWrapper({ idx, children, startWithCloud }){
@@ -35,6 +36,21 @@ function CloudWrapper({ idx, children, startWithCloud }){
 export default function Page({ content }){
   return (
     <main>
+      {content.isHomePage && (
+        <h1 className="text-4xl sm:text-5xl
+          py-24
+          md:py-24
+          font-cooper-hewitt
+          text-center
+          text-white
+          tracking-widest
+          bg-white
+          bg-cover
+          flex
+          justify-center">
+          <Image src="/plenty-homepage-logo.png" width={287} height={186}/>
+        </h1>
+      )}
       {content.displayTitle && (
         <h1 className="text-4xl sm:text-5xl
           py-24

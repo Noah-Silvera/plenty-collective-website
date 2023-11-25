@@ -13,12 +13,13 @@ export default class PageContent extends BaseContent{
     'gallery': GalleryContent
   }
 
-  constructor({title, sections, displayTitle}) {
+  constructor({title, sections, displayTitle, isHomePage}) {
     super()
 
     this.title = title;
     this.displayTitle = displayTitle;
     this.sections = sections;
+    this.isHomePage = isHomePage
   }
 
   toJSON(){
@@ -26,6 +27,7 @@ export default class PageContent extends BaseContent{
       type: this.constructor.name,
       title: this.title,
       displayTitle: this.displayTitle,
+      isHomePage: this.isHomePage,
       sectionsJSON: this.sections.map((section) => section.toJSON())
     }
   }
@@ -53,6 +55,6 @@ export default class PageContent extends BaseContent{
       }
     })
 
-    return new PageContent({title: fields.title, sections: sections, displayTitle: fields.displayTitle})
+    return new PageContent({title: fields.title, sections: sections, displayTitle: fields.displayTitle, isHomePage: fields.isHomePage})
   }
 }

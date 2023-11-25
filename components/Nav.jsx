@@ -3,9 +3,10 @@ import Link from 'next/link'
 import { ResponsiveNavbar } from "react-hamburger-menus";
 import "react-hamburger-menus/dist/style.css";
 import { useState } from 'react'
+import classNames from 'classnames';
 
 
-export default function Nav({ pages }) {
+export default function Nav({ pages, isHomePage }) {
   const [navOpen, setNavOpen] = useState(false)
 
   pages = pages || []
@@ -43,7 +44,23 @@ export default function Nav({ pages }) {
           </Link>
         </ul>
       </ResponsiveNavbar>
-      <nav className="hidden sm:flex flex-row bg-purple-500 bg-opacity-20 p-2 text-white text-xl font-bold gap-2 sm:gap-4">
+      <nav className={classNames(
+        "hidden",
+        "sm:flex",
+        "flex-row",
+        "p-2",
+        "text-xl",
+        "font-bold",
+        "gap-2",
+        "sm:gap-4",
+        {
+          "bg-purple-500": !isHomePage,
+          "bg-white": isHomePage,
+          "bg-opacity-20": !isHomePage,
+          "text-white": !isHomePage,
+          "text-purple-400": isHomePage
+        }
+        )}>
         {logo}
         {pages.map((page, idx) => {
           return <Link href={`/${page.urlPath}`} className="my-auto text-base sm:text-lg" key={idx}>{page.title}</Link>
