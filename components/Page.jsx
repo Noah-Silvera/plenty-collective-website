@@ -38,8 +38,9 @@ export default function Page({ content }){
     <main>
       {content.isHomePage && (
         <h1 className="text-4xl sm:text-5xl
-          py-24
-          md:py-24
+          pt-32
+          pb-12
+          md:py-16
           font-cooper-hewitt
           text-center
           text-white
@@ -48,7 +49,7 @@ export default function Page({ content }){
           bg-cover
           flex
           justify-center">
-          <Image src="/plenty-homepage-logo.png" width={287} height={186}/>
+          <Image src="/plenty-homepage-logo.png" width={1200 / 2} height={560 / 2}/>
         </h1>
       )}
       {content.displayTitle && (
