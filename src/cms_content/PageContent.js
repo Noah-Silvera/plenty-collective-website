@@ -2,6 +2,7 @@ import QuoteContent from "./QuoteContent";
 import ParagraphContent from "./ParagraphContent";
 import GalleryContent from "./GalleryContent";
 import BaseContent from "./BaseContent";
+import EmbeddedHtmlContent from "./EmbeddedHtmlContent";
 
 export default class PageContent extends BaseContent{
   // Add any new types that need to be displayed in a page to this
@@ -10,7 +11,8 @@ export default class PageContent extends BaseContent{
   static sectionTypeMap = {
     'paragraph': ParagraphContent,
     'quote': QuoteContent,
-    'gallery': GalleryContent
+    'gallery': GalleryContent,
+    'embeddedHtml': EmbeddedHtmlContent
   }
 
   constructor({title, sections, displayTitle, isHomePage}) {
