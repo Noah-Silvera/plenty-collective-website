@@ -3,6 +3,7 @@ import ParagraphContent from "./ParagraphContent";
 import GalleryContent from "./GalleryContent";
 import BaseContent from "./BaseContent";
 import EmbeddedHtmlContent from "./EmbeddedHtmlContent";
+import Banner from "./BannerContent";
 
 export default class PageContent extends BaseContent{
   // Add any new types that need to be displayed in a page to this
@@ -12,7 +13,8 @@ export default class PageContent extends BaseContent{
     'paragraph': ParagraphContent,
     'quote': QuoteContent,
     'gallery': GalleryContent,
-    'embeddedHtml': EmbeddedHtmlContent
+    'embeddedHtml': EmbeddedHtmlContent,
+    'banner': Banner,
   }
 
   constructor({title, sections, displayTitle, isHomePage}) {

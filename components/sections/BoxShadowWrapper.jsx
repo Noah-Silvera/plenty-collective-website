@@ -1,6 +1,7 @@
 import classNames from "classnames"
 
-export default function BoxShadowWrapper({ children, idx }){
+export default function BoxShadowWrapper({ children, idx, className }){
+  className = className || ""
   let evenIndex = idx % 2 == 0;
   let oddIndex = idx % 2 == 1;
 
@@ -19,6 +20,7 @@ export default function BoxShadowWrapper({ children, idx }){
       "rounded-md",
       "drop-shadow-xl",
       "bg-opacity-75",
+      ...className.split(" "),
       {
         "bg-plenty-pink-300": evenIndex,
         "bg-plenty-purple-200": oddIndex
