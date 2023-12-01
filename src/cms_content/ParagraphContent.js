@@ -31,7 +31,7 @@ export default class ParagraphContent extends BaseContent {
 
     return new ParagraphContent({
       header: fields.header,
-      document: fields.content,
+      document: fields.content || "",
       type: type,
       image: image,
       imagePosition: ImageJSON.imagePositionToString(fields.imagePosition)
