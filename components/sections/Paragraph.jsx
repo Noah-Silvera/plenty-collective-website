@@ -3,7 +3,7 @@ import BoxShadowWrapper from './BoxShadowWrapper'
 import classNames from 'classnames'
 
 export default function Paragraph({ content, idx }){
-  return <BoxShadowWrapper idx={idx}>
+  return <BoxShadowWrapper idx={idx} className={classNames({ "sm:hidden": content.mobileOnly, "hidden sm:block": content.desktopOnly })}>
     <section className={classNames(
       "p-2",
       "sm:p-6",
@@ -36,8 +36,9 @@ export default function Paragraph({ content, idx }){
       )}>
         {content.header && <h2 className="text-4xl text-center pb-4">{content.header}</h2>}
         <div className={classNames(
-          "text-lg",
-          "leading-8",
+          "text-sm",
+          "sm:text-lg",
+          "leading-6",
           "sm:leading-10",
           "tracking-wide",
           "font-libre-baskerville",

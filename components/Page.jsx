@@ -3,7 +3,7 @@ import classNames from "classnames"
 import Image from "next/image"
 
 // This wrapper will wrap every other section in a cloud
-function CloudWrapper({ idx, children, startWithCloud }){
+function CloudWrapper({ idx, children, startWithCloud, className }){
   const displayCloud = (idx) => {
     return startWithCloud ? idx % 2 == 0 : idx % 2 == 1
   }
@@ -24,7 +24,8 @@ function CloudWrapper({ idx, children, startWithCloud }){
         "bg-center",
         "flex",
         "justify-center",
-        "items-center"
+        "items-center",
+        className
       )}
       style={{backgroundImage: displayCloud(idx) ? `url(${cloudImageUrls[(Math.floor(idx/2) + startingCloudImageIndex) % cloudImageUrls.length]})`: 'none'}}
     >
@@ -79,7 +80,7 @@ export default function Page({ content }){
         </h1>
       )}
       {content.sections.map((section, idx) => {
-        return <CloudWrapper idx={idx} key={idx} startWithCloud={!content.displayTitle}>
+        return <CloudWrapper idx={idx} key={idx} startWithCloud={!content.displayTitle} className={classNames({"pt-12 sm:pt-0": idx == 0})}>
           {createElement(
             section.constructor.ReactComponent,
             {content: section, idx: idx}

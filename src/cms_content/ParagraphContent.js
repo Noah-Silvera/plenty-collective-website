@@ -3,13 +3,15 @@ import BaseContent from "./BaseContent";
 import { ImageJSON } from "./utils";
 
 export default class ParagraphContent extends BaseContent {
-  constructor({header, document, type, image, imagePosition}) {
+  constructor({header, document, type, image, imagePosition, mobileOnly, desktopOnly}) {
     super()
     this.header = header;
     this.document = document;
     this.type = type
     this.image = image
     this.imagePosition = imagePosition
+    this.mobileOnly = mobileOnly
+    this.desktopOnly = desktopOnly
   }
 
   toJSON(){
@@ -18,7 +20,9 @@ export default class ParagraphContent extends BaseContent {
       header: this.header || null,
       document: this.document,
       image: this.image,
-      imagePosition: this.imagePosition
+      imagePosition: this.imagePosition,
+      mobileOnly: this.mobileOnly,
+      desktopOnly: this.desktopOnly,
     }
   }
 
@@ -34,7 +38,9 @@ export default class ParagraphContent extends BaseContent {
       document: fields.content || "",
       type: type,
       image: image,
-      imagePosition: ImageJSON.imagePositionToString(fields.imagePosition)
+      imagePosition: ImageJSON.imagePositionToString(fields.imagePosition),
+      mobileOnly: fields.mobileOnly || false,
+      desktopOnly: fields.desktopOnly || false,
     })
   }
 
