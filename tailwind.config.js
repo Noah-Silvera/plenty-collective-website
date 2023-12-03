@@ -60,7 +60,7 @@ module.exports = {
       },
       fontFamily: {
         'liberation-sans': 'LiberationSans',
-        'libre-baskerville': 'LibreBaskerville',
+        'bc-sans': 'BcSans',
         'cooper-hewitt': 'CooperHewitt'
       }
     },

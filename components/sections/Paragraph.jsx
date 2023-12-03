@@ -41,7 +41,7 @@ export default function Paragraph({ content, idx }){
           "leading-6",
           "sm:leading-10",
           "tracking-wide",
-          "font-libre-baskerville",
+          "font-bc-sans",
           "contentful-rich-text",
           {
             "sm:text-lg": content.image,
