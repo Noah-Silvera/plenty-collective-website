@@ -48,7 +48,7 @@ export default class PageContent extends BaseContent{
   }
 
   static buildFromContentfulFields(fields) {
-    let sections = fields.sections.map((section) => {
+    let sections = fields.sections.filter((section) => !!section.sys.contentType).map((section) => {
       let contentTypeId = section.sys.contentType.sys.id
       let contentType = this.sectionTypeMap[contentTypeId]
 
